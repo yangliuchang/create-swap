@@ -4,6 +4,9 @@ NO_COLOR="\033[0m"
 GREEN="\033[32m\033[01m"
 BLUE="\033[0;36m"
 FUCHSIA="\033[0;35m"
+echo "export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+sleep 2
 echo "
       ${GREEN} Creat-SWAP by yanglc
       ${GREEN} 本脚本仅在Debian系系统下进行过测试"
