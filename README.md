@@ -1,3 +1,4 @@
 # create-swap
 Add SWAP partition for linux system and set it to start automatically.
-一件添加swap分区，并开机自启
+为linux增加swap分区
+一键添加swap分区，并添加开机自启
