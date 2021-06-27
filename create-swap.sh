@@ -3,20 +3,12 @@ echo "
        Creat-SWAP by yanglc
        本脚本仅在Debian系系统下进行过测试
        "
-get_char()
-{
-    SAVEDSTTY=`stty -g`
-    stty -echo
-    stty cbreak
-    dd if=/dev/tty bs=1 count=1 2> /dev/null
-    stty -raw
-    stty echo
-    stty $SAVEDSTTY
-}
-echo "按任意键添加2G大小的SWAP分区："
-char=`get_char`
+now=`free -m| grep "Swap:"| awk '{print $2}'`
+echo "当前系统swap分区大小为:$now Mb"
+echo "请输入要增加的swap分区大小（单位Mb）:"
+read -e swap
 echo "###########开始添加SWAP分区##########"
-dd if=/dev/zero of=/mnt/swap bs=1M count=2048
+sudo dd if=/dev/zero of=/mnt/swap bs=1M count=${swap}
 echo -e
 echo " ###########设置交换分区文件##########"
 mkswap /mnt/swap
